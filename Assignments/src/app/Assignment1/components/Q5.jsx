@@ -1,27 +1,37 @@
-// 5.Create a functional component named TaskList that accepts an array of task names as a prop.
-// Use the map function to render each task name as a list item.
-// Import and render the TaskList component in the App component with an array of tasks.
+export default function TaskList({ data }) {
+  const containerStyle = {
+    fontFamily: 'Segoe UI, sans-serif',
+    padding: '20px',
+    textAlign: 'center',
+  };
 
-export default function TaskList(props) {
-    const {data} = props
-  const taskl = data.map((task) => <li key={task.id}>{task.name}</li>);
+  const headingStyle = {
+    fontSize: '1.8rem',
+    marginBottom: '10px',
+    color: '#0070f3',
+  };
+
+  const listStyle = {
+    listStyleType: 'square',
+    padding: '0',
+  };
+
+  const itemStyle = {
+    fontSize: '1.1rem',
+    color: '#333',
+    margin: '8px 0',
+  };
+
+  const taskList = data.map((task, index) => (
+    <li key={index} style={itemStyle}>
+      {task}
+    </li>
+  ));
+
   return (
-    <>
-      <h2> Task List </h2>
-      <ul> {taskl}</ul>
-    </>
+    <div style={containerStyle}>
+      <h2 style={headingStyle}>Task List</h2>
+      <ul style={listStyle}>{taskList}</ul>
+    </div>
   );
 }
-
-
-
-
-
-
-
-// const task = [
-//     'training',
-//     'Hit the Gym',
-//     'Reactjs',                      // this give the error keys error in this we neeed to add keys
-//     'Nextjs'
-// ]

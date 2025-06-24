@@ -1,20 +1,24 @@
-// 3.Create a functional component named Weather that accepts a prop called temperature (a number).
-// Display a message like "It's sunny today!" if the temperature is above 25°C and "It's cold today!" if the temperature is below 10°C.
-// Import and render the Weather component in the App component with different temperature values.
-
 const Weather = ({ temperature }) => {
-    if(!isNaN(temperature)){
-        if (temperature > 25) {
-    return <p>It's sunny today!</p>;
-  } else if (temperature < 10) {
-    return <p>It's cold today!</p>;
-  } else {
-    return <p>The weather is moderate today.</p>;
+  const textStyle = {
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#333',
+    marginTop: '20px',
+    fontFamily: 'Arial, sans-serif',
+  };
+
+  if (isNaN(temperature)) {
+    return <p style={textStyle}>Enter the correct value</p>;
   }
-    }
-    else{
-  return (<p>enter the correct value</p>);
-}
+
+  if (temperature > 25) {
+    return <p style={textStyle}>It's sunny today!</p>;
+  } else if (temperature < 10) {
+    return <p style={textStyle}>It's cold today!</p>;
+  } else {
+    return <p style={textStyle}>The weather is moderate today.</p>;
+  }
 };
 
 export default Weather;

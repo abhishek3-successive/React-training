@@ -5,10 +5,11 @@
 function Button({ text, color }) {
   const buttonStyle = {
     backgroundColor: color,
-    padding: '10px 20px',
+    padding: '10px 20px 10px',
     borderRadius: '5px',
     border: 'none',
     color: 'white'
+
   };
   return <button style={buttonStyle}>{text}</button>;
 }
