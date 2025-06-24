@@ -7,7 +7,8 @@ export default function TaskList(props) {
   const taskl = data.map((task) => <li key={task.id}>{task.name}</li>);
   return (
     <>
-      <h1> {taskl}</h1>
+      <h2> Task List </h2>
+      <ul> {taskl}</ul>
     </>
   );
 }
