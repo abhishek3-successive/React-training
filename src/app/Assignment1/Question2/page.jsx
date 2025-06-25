@@ -1,4 +1,4 @@
-import UserCard from "../components/Q2";
+import UserCard from "./Q2";
 
 export default function Userdata(){
     return(

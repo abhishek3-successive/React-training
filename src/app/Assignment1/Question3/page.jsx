@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import Weather from "../components/Q3";
+import Weather from "./Q3";
 
 export default function App() {
   const [selectedCity, setSelectedCity] = useState('Delhi');

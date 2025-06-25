@@ -1,4 +1,4 @@
-import TaskList from "../components/Q5";
+import TaskList from "./Q5";
 
 export default function App() {
   const tasks = ['Training', 'Hit the Gym', 'ReactJS', 'NextJS'];
