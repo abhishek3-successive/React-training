@@ -1,4 +1,4 @@
-import EmployeeSalary from "../components/Q16";
+import EmployeeSalary from "./Q16";
 
 export default function(){
     return <EmployeeSalary/>

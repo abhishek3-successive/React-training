@@ -1,4 +1,4 @@
-import VoteCounter from "../components/Q12";
+import VoteCounter from "./Q12";
 
 export default function(){
     return <VoteCounter/>

@@ -1,4 +1,4 @@
-import StudentList from "../components/Q15";
+import StudentList from "./Q15";
 
 export default function(){
     return <StudentList/>

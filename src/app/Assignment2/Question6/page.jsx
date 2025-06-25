@@ -1,4 +1,4 @@
-import Clock from "../components/Q6";
+import Clock from "./Q6";
 
 export default function(){
     return <Clock/>

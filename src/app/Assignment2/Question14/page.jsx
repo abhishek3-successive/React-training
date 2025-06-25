@@ -1,4 +1,4 @@
-import TaskList from "../components/Q14";
+import TaskList from "./Q14";
 
 export default function(){
     return <TaskList/>

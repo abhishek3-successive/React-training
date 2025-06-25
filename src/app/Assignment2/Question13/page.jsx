@@ -1,4 +1,4 @@
-import Parent from "../components/Q13";
+import Parent from "./Q13";
 
 export default function(){
     return <Parent/>

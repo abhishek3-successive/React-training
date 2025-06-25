@@ -1,4 +1,4 @@
-import ToDoList from "../components/Q3";
+import ToDoList from "./Q3";
 
 export default function(){
     return <ToDoList/>

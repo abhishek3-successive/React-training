@@ -1,4 +1,4 @@
-import RandomNumberGenerator from "../components/Q4";
+import RandomNumberGenerator from "./Q4";
 
 export default function(){
     return <RandomNumberGenerator/>

@@ -1,4 +1,4 @@
-import Notification from "../components/Q7";
+import Notification from "./Q7";
 
 export default function(){
     return <Notification></Notification>
