@@ -1,7 +1,7 @@
 function Greeting() {
   const headingStyle = {
     fontSize: '2rem',
-    color: '#0070f3',
+    color: 'white',
     textAlign: 'center',
     marginTop: '50px',
     fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',

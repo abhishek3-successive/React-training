@@ -16,7 +16,7 @@ export default function Counter() {
   const countStyle = {
     fontSize: '2rem',
     marginBottom: '20px',
-    color: '#333',
+    color: 'white',
   };
 
   const buttonStyle = {

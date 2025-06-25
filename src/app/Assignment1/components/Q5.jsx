@@ -18,7 +18,7 @@ export default function TaskList({ data }) {
 
   const itemStyle = {
     fontSize: '1.1rem',
-    color: '#333',
+    color: 'white',
     margin: '8px 0',
   };
 

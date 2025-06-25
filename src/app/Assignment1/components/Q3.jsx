@@ -3,7 +3,7 @@ const Weather = ({ temperature }) => {
     fontSize: '1.2rem',
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#333',
+    color: 'white',
     marginTop: '20px',
     fontFamily: 'Arial, sans-serif',
   };
