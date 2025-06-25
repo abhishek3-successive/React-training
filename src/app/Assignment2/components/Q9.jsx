@@ -11,15 +11,15 @@ export default function Theme() {
   const { theme, setTheme } = useContext(ThemeContext);  // This should not throw an error if context is provided
 
   function handleTheme() {
-    if (theme === "dark") {
-      setTheme("light");
+    if (theme === "black") {
+      setTheme("white");
     } else {
-      setTheme("dark");
+      setTheme("black");
     }
   }
 
   return (
-    <div>
+    <div style={{backgroundColor : theme}}>
       <p>The current theme is {theme}</p>
       <button onClick={handleTheme}>Toggle Theme</button>
     </div>

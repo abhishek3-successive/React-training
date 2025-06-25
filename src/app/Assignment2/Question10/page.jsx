@@ -9,7 +9,6 @@ export default function App() {
   const [lang, setLang] = useState("en");
 
   return (
-    // wrap
     <LanguageSwitcher.Provider value={{ lang, setLang }}>
       <div>
         <Language />
