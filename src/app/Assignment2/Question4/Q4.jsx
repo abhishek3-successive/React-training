@@ -16,13 +16,11 @@ import {
 
 function RandomNumberGenerator() {
   // State to store the random number (starts with null)
-  const [randomNumber, setRandomNumber] = useState(null);
+  // const [randomNumber, setRandomNumber] = useState(null);
+  let randomNumber = null;
 
   // Function to generate a new random number between 1 and 100
-  const generateRandomNumber = () => {
-    const newNumber = Math.floor(Math.random() * 100) + 1;
-    setRandomNumber(newNumber);
-  };
+  const generateRandomNumber = () => Math.floor(Math.random() * 100) + 1;
 
   return (
     <div style={containerStyle}>
@@ -30,11 +28,7 @@ function RandomNumberGenerator() {
         <h2 style={headingStyle}>Random Number Generator</h2>
         
         <div style={numberDisplayStyle}>
-          {randomNumber ? (
-            randomNumber
-          ) : (
-            <span style={placeholderStyle}>Click to generate!</span>
-          )}
+          {randomNumber ? ( randomNumber ) : ( <span style={placeholderStyle}>Click to generate!</span>)}
         </div>
         
         <button onClick={generateRandomNumber} style={buttonStyle}>

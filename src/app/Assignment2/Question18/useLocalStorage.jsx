@@ -8,7 +8,6 @@ function useLocalStorage(key, initialValue) {
   // Get value from localStorage when component mounts
   useEffect(() => {
     // Check if we're in the browser (not during server-side rendering)
-    if (typeof window !== 'undefined') {
       try {
         const savedValue = localStorage.getItem(key);
         if (savedValue) {
@@ -18,7 +17,7 @@ function useLocalStorage(key, initialValue) {
         console.error('Error reading from localStorage:', error);
       }
     }
-  }, [key]);
+, [key]);
 
   // Function to set value in both state and localStorage
   const setStoredValue = (newValue) => {
