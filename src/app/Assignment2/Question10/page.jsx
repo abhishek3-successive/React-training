@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useState } from "react";
-import Language from "../components/Q10";
+import Language from "./Q10";
 
 const LanguageSwitcher = createContext(); // create context
 

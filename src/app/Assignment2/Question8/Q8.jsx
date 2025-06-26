@@ -5,7 +5,14 @@
 // Include a time interval option to control the automatic slideshow progression.
 
 import { useState, useEffect } from "react";
-
+import {
+    buttonHoverStyle,
+    buttonStyle,
+    containerStyle,
+    controlsStyle,
+    imageContainerStyle,
+    imageStyle
+} from './Q8.css'
 export default function SlideShow() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
@@ -36,13 +43,17 @@ export default function SlideShow() {
     }, [isPlaying]);
 
     return (
-        <div style={{ textAlign: "center", width: "80%", margin: "0 auto" }}>
-            <div>
-                <img src={images[currentSlide]} alt={`Slide ${currentSlide}`} style={{ width: "100%", maxHeight: "400px", objectFit: "cover" }} />
+        <div style={containerStyle}>
+            <div style={imageContainerStyle}>
+                <img
+                    src={images[currentSlide]}
+                    alt={`Slide ${currentSlide}`}
+                    style={imageStyle}
+                />
             </div>
 
-            <div style={{ marginTop: "10px" }}>
-                <button onClick={togglePlayPause}>
+            <div style={controlsStyle}>
+                <button onClick={togglePlayPause} style={buttonStyle}>
                     {isPlaying ? "Pause" : "Play"}
                 </button>
             </div>

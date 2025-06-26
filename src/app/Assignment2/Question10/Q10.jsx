@@ -5,12 +5,8 @@
 // Display different language versions of the application's content.
 import { LanguageSwitcher } from "../Question10/page";
 import { useContext } from "react";
-
 export default function Language() {
   const { lang, setLang } = useContext(LanguageSwitcher);
-
- 
-
   return (
     <main>
       <h1> {lang === "en" ? "Hello" : "Hola"}</h1>
