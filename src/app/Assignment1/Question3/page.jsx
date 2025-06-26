@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import { appStyle,selectStyle } from "./Q3.css";
 import Weather from "./Q3";
 
 export default function App() {
@@ -14,18 +15,6 @@ export default function App() {
 
   const handleChange = (e) => {
     setSelectedCity(e.target.value);
-  };
-
-  const appStyle = {
-    padding: '40px',
-    fontFamily: 'Segoe UI, sans-serif',
-    textAlign: 'center',
-  };
-
-  const selectStyle = {
-    padding: '10px',
-    fontSize: '1rem',
-    marginBottom: '20px',
   };
 
   return (
