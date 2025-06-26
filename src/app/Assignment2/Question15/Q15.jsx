@@ -9,7 +9,7 @@
 import { useMemo, useState } from "react";
 
 export default function StudentList() {
-  let studentList = ["Student1 ",  "Student2 ", "Student3 "];
+  let studentList = ["Student "];
   const [list, setList] = useState([studentList]);
 
   const addStudent = () =>
