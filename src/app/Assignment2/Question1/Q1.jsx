@@ -29,7 +29,6 @@ export default function Counter() {
     <div style={containerStyle}>
       <div style={counterBoxStyle}>
         <h1 style={headingStyle}>Counter </h1>
-        
         <p style={countStyle}>{count}</p>
         
         <button onClick={add} style={addButtonStyle}>

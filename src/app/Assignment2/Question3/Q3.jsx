@@ -67,7 +67,7 @@ function ToDoList() {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onClick={handleKeyPress}
           placeholder="Add new todo..."
           style={inputStyle}
         />

@@ -1,4 +1,4 @@
-import Counter from "../components/Q4";
+import Counter from "./Q4";
 
 export default function (){
     return(

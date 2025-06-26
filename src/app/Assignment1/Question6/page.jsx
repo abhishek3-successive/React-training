@@ -1,4 +1,4 @@
-import Button from "../components/Q6";
+import Button from "./Q6";
 export default function (){
     return(
         <>
