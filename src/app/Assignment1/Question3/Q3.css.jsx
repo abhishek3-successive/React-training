@@ -14,7 +14,7 @@ const textStyle = {
   fontSize: '1.2rem',
   fontWeight: 'bold',
   textAlign: 'center',
-  color: 'white',
+  color: 'black',
   marginTop: '20px',
   fontFamily: 'Arial, sans-serif',
 };
