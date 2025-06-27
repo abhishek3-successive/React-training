@@ -8,8 +8,6 @@ export default function Assignment3Home() {
     <main style={{ padding: 30 }}>
      
 
-     
-
       <button onClick={() => router.push('/Assignment3/Login')} style={{ margin: '10px' }}>
         Login Page
       </button>

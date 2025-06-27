@@ -9,7 +9,7 @@ const contextProvider= createContext();
 export default function Parent()
 {
     const [isLoggedIn,setLoggedIn]=useState(false);
-    const [username,setUsername]= useState("Abhishek")
+    const username = "Abhishek";
 
 
     function login()
