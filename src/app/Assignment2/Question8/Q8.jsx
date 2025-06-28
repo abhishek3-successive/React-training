@@ -39,7 +39,7 @@ export default function SlideShow() {
 
         const interval = setInterval(nextSlide, 3000); // 3 seconds interval
 
-        return () => clearInterval(interval); // Cleanup interval when component unmounts or when paused
+        return ( clearInterval(interval)); // Cleanup interval when component unmounts or when paused
     }, [isPlaying]);
 
     return (

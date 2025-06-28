@@ -6,7 +6,7 @@
 // Q9.jsx
 'use client'
 import React, { useContext } from 'react';
-import ThemeContext from '../context/theme';
+import ThemeContext from './theme';
 
 export default function Theme() {
   const { theme, setTheme } = useContext(ThemeContext);  // Access the current theme
