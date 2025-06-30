@@ -1,27 +1,23 @@
 'use client'
-// 8.Use the useEffect hook to manage the current slide and transition.
-// Add few images atleast 10 in public folder to populate the slideshow.
-// Allow users to pause, play the slideshow.
-// Include a time interval option to control the automatic slideshow progression.
-
 import { useState, useEffect } from "react";
 import {
-    buttonHoverStyle,
     buttonStyle,
     containerStyle,
     controlsStyle,
     imageContainerStyle,
     imageStyle
 } from './Q8.css'
+
 export default function SlideShow() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
+    const [intervalTime, setIntervalTime] = useState(3000); // default 3 seconds
 
     const images = [
         '/Images/image1.png',
         '/Images/image2.png',
         '/Images/image3.png',
-        '/Images/image4.png'
+        '/Images/image4.png',
     ];
 
     // Change to the next slide
@@ -34,20 +30,30 @@ export default function SlideShow() {
         setIsPlaying(!isPlaying);
     };
 
+    // Handle interval time change
+    const handleIntervalChange = (e) => {
+        const value = Number(e.target.value);
+        if (!isNaN(value) && value > 0) {
+            setIntervalTime(value);
+        }
+    };
+
     useEffect(() => {
         if (!isPlaying) return;
 
-        const interval = setInterval(nextSlide, 3000); // 3 seconds interval
+        const interval = setInterval(() => {
+            nextSlide();
+        }, intervalTime);
 
-        return ( clearInterval(interval)); // Cleanup interval when component unmounts or when paused
-    }, [isPlaying]);
+        return () => clearInterval(interval);
+    }, [isPlaying, intervalTime]); 
 
     return (
         <div style={containerStyle}>
             <div style={imageContainerStyle}>
                 <img
                     src={images[currentSlide]}
-                    alt={`Slide ${currentSlide}`}
+                    alt={`Slide ${currentSlide + 1}`}
                     style={imageStyle}
                 />
             </div>
@@ -56,6 +62,18 @@ export default function SlideShow() {
                 <button onClick={togglePlayPause} style={buttonStyle}>
                     {isPlaying ? "Pause" : "Play"}
                 </button>
+
+                <label style={{ marginLeft: 10 }}>
+                    Interval (ms):{" "}
+                    <input
+                        type="number"
+                        value={intervalTime}
+                        onChange={handleIntervalChange}
+                        min="500"
+                        step="500"
+                        style={{ width: 80 }}
+                    />
+                </label>
             </div>
         </div>
     );
