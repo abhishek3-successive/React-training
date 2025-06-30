@@ -5,7 +5,7 @@
 // When the component unmounts, clear the interval to stop updating the time.
 
 "use client"
-
+import { clockContainerStyle,headingStyle,timeStyle } from "./Q6.css";
 import { useState, useEffect } from "react"
 
 export default function Clock()
@@ -20,11 +20,10 @@ export default function Clock()
         return (clearInterval(currTime));
     }, [time]);
 
-    return(
-        <main>
-            <h2>Date and Time</h2>
-
-            <h4>current Time: {time.toLocaleString()}</h4>
+ return (
+        <main style={clockContainerStyle}>
+            <h2 style={headingStyle}>Date and Time</h2>
+            <h4 style={timeStyle}>Current Time: {time.toLocaleString()}</h4>
         </main>
-    )
+    );
 }

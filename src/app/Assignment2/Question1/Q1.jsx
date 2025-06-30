@@ -1,23 +1,44 @@
 'use client'
-// 1.Create a functional component called Counter.
-// Inside the component, use the useState hook to manage a state variable named count initialized to 0.
-// Render the current value of count in a <p> element.
-// Add two buttons, one for incrementing the count and another for decrementing it.
-// When the user clicks on the buttons, update the count state accordingly.
+// Simple Counter Component for Fresher Level
 
-// imports
-import { useState } from "react"
+import { useState } from "react";
+import {
+  containerStyle,
+  counterBoxStyle,
+  headingStyle,
+  countStyle,
+  addButtonStyle,
+  subButtonStyle
+} from "./Q1.css";
 
-// export
-export default function Counter(){
-    const [count , setcount] = useState(0);
-    let add = ()=> setcount(()=> count+1)
-    let sub = () => setcount(()=> count-1)
-    return(
-        <>
-        <h1> Counter : {count}</h1>
-        <button onClick={add}> add(+1) </button>
-        <button onClick={sub}> sub(-1)</button>
-        </>
-    );
+export default function Counter() {
+  // State to store count value
+  const [count, setCount] = useState(0);
+
+  // Function to add 1 to count
+  const add = () => {
+    setCount(count + 1);
+  };
+
+  // Function to subtract 1 from count
+  const sub = () => {
+    setCount(count - 1);
+  };
+
+  return (
+    <div style={containerStyle}>
+      <div style={counterBoxStyle}>
+        <h1 style={headingStyle}>Counter </h1>
+        <p style={countStyle}>{count}</p>
+        
+        <button onClick={add} style={addButtonStyle}>
+          Add (+1)
+        </button>
+        
+        <button onClick={sub} style={subButtonStyle}>
+          Sub (-1)
+        </button>
+      </div>
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useState} from "react";
-import  {ProductList, Cart} from "../components/Q11";
+import  {ProductList, Cart} from "./Q11";
 
 const CartContext = createContext();
 export default function CartProvider() {

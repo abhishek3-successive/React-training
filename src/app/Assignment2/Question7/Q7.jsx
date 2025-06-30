@@ -4,7 +4,7 @@
 // Use the useEffect hook to show a notification message for 5 seconds whenever the message state changes.
 // Render the notification message in a <div> element.
 // After 5 seconds, clear the message to hide the notification.
-
+import { containerStyle,buttonStyle,notificationStyle } from "./page.css";
 import { useState , useEffect } from "react"
 export default function Notification() {
   const [message, setMessage] = useState("");
@@ -20,13 +20,19 @@ export default function Notification() {
   }, [message]);
 
   return (
-    <main>
-      <button onClick={() => setMessage("This is new message")}>
-        {" "}
-        Notify Me{" "}
+    <main style={containerStyle}>
+      <button 
+        style={buttonStyle} 
+        onClick={() => setMessage("This is a new message!")}
+      >
+        Notify Me
       </button>
 
-      <p>Message:{message}</p>
+      {message && (
+        <div style={notificationStyle}>
+          {message}
+        </div>
+      )}
     </main>
   );
 }

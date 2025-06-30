@@ -204,6 +204,40 @@ export default function HomePage() {
           }}>
           <Link href="/Assignment2/Question16">Question-16</Link>
         </li>
+
+        <li style={{
+            background: "black",
+            padding: "20px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            textAlign: "center",
+            fontWeight: "bold",
+            transition: "transform 0.3s, box-shadow 0.3s",
+          }}>
+          <Link href="/Assignment2/Question17">Question-17</Link>
+        </li>
+        <li style={{
+            background: "black",
+            padding: "20px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            textAlign: "center",
+            fontWeight: "bold",
+            transition: "transform 0.3s, box-shadow 0.3s",
+          }}>
+          <Link href="/Assignment2/Question18">Question-18</Link>
+        </li>
+          <li style={{
+            background: "black",
+            padding: "20px",
+            borderRadius: "12px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            textAlign: "center",
+            fontWeight: "bold",
+            transition: "transform 0.3s, box-shadow 0.3s",
+          }}>
+          <Link href="/Assignment2/Question19">Question-19</Link>
+        </li>
       </ul>
     </main>
   );

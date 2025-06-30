@@ -6,9 +6,10 @@
 // Q9.jsx
 'use client'
 import React, { useContext } from 'react';
-import ThemeContext from '../context/theme';
+import ThemeContext from './theme';
+
 export default function Theme() {
-  const { theme, setTheme } = useContext(ThemeContext);  // This should not throw an error if context is provided
+  const { theme, setTheme } = useContext(ThemeContext);  // Access the current theme
 
   function handleTheme() {
     if (theme === "black") {
@@ -18,11 +19,33 @@ export default function Theme() {
     }
   }
 
+  const containerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    color: theme === "black" ? "white" : "black",  // Set text color based on theme
+    backgroundColor: theme === "black" ? "#333" : "#fff", // Dark background for black theme
+    fontFamily: 'Arial, sans-serif',
+  };
+
+  const buttonStyle = {
+    padding: '10px 20px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    border: 'none',
+    borderRadius: '5px',
+    backgroundColor: theme === "black" ? "#fff" : "#333",  // Inverse button color
+    color: theme === "black" ? "#333" : "#fff",  // Inverse button text color
+    marginTop: '20px',
+    transition: 'background-color 0.3s ease',
+  };
+
   return (
-    <div style={{backgroundColor : theme}}>
+    <div style={containerStyle}>
       <p>The current theme is {theme}</p>
-      <button onClick={handleTheme}>Toggle Theme</button>
+      <button style={buttonStyle} onClick={handleTheme}>Toggle Theme</button>
     </div>
   );
 }
-
