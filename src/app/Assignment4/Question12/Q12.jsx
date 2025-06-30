@@ -1,6 +1,6 @@
 'use client';
 
-import React ,{useState} from 'react';
+import React, { useState } from 'react';
 import {
   Table,
   TableBody,
@@ -8,7 +8,6 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  TableSortLabel,
   Paper,
   TablePagination,
   Box,
@@ -18,48 +17,26 @@ const sampleData = [
   { id: 1, name: 'GG', age: 25, city: 'Delhi' },
   { id: 2, name: 'Goku', age: 30, city: 'Mumbai' },
   { id: 3, name: 'Vegeta', age: 22, city: 'Bangalore' },
-  { id: 4, name: 'pikalo', age: 28, city: 'Chennai' },
-  { id: 5, name: 'Super Dragron', age: 35, city: 'Kolkata' },
-  { id: 6, name: 'Supereme Leader', age: 29, city: 'Pune' },
+  { id: 4, name: 'Pikalo', age: 28, city: 'Chennai' },
+  { id: 5, name: 'Super Dragon', age: 35, city: 'Kolkata' },
+  { id: 6, name: 'Supreme Leader', age: 29, city: 'Pune' },
   { id: 7, name: 'Gohan', age: 33, city: 'Ahmedabad' },
   { id: 8, name: 'Tanjiro', age: 27, city: 'Hyderabad' },
 ];
 
-function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) return -1;
-  if (b[orderBy] > a[orderBy]) return 1;
-  return 0;
-}
-
-function getComparator(order, orderBy) {
-  return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
-}
-
 export default function DataTable() {
-  const [order, setOrder] = useState('asc');
-  const [orderBy, setOrderBy] = useState('name');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const handleRequestSort = (property) => () => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-  };
-
   const handleChangePage = (_, newPage) => setPage(newPage);
+
   const handleChangeRowsPerPage = (e) => {
-    setRowsPerPage(parseInt(e.target.value, 10));
-    setPage(0);
+    setRowsPerPage(Number(e.target.value));
+    setPage(0); // Reset to page 0 when rows per page change
   };
 
-  const sortedRows = [...sampleData].sort(getComparator(order, orderBy));
-  const paginatedRows = sortedRows.slice(
-    page * rowsPerPage,
-    page * rowsPerPage + rowsPerPage
-  );
+  // Paginated data
+  const paginatedRows = sampleData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
   return (
     <Box sx={{ maxWidth: 800, mx: 'auto', mt: 5 }}>
@@ -69,15 +46,7 @@ export default function DataTable() {
             <TableHead>
               <TableRow>
                 {['name', 'age', 'city'].map((column) => (
-                  <TableCell key={column}>
-                    <TableSortLabel
-                      active={orderBy === column}
-                      direction={orderBy === column ? order : 'asc'}
-                      onClick={handleRequestSort(column)}
-                    >
-                      {column.charAt(0).toUpperCase() + column.slice(1)}
-                    </TableSortLabel>
-                  </TableCell>
+                  <TableCell key={column}>{column.charAt(0).toUpperCase() + column.slice(1)}</TableCell>
                 ))}
               </TableRow>
             </TableHead>
