@@ -1,4 +1,3 @@
-// app/users/page.jsx
 import axios from 'axios';
 import RetryFetch from './Q6';
 
