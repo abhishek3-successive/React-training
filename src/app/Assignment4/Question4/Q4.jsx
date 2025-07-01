@@ -10,7 +10,6 @@ export default function ControlledRegistrationForm() {
   const [verifyPassword, setVerifyPassword] = useState('');
   const [error, setError] = useState('');
 
-  // Handle the password verification logic
   const handleSubmit = () => {
     if (password !== verifyPassword) {
       setError('Passwords do not match!');
