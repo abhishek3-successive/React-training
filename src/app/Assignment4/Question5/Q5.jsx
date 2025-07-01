@@ -4,7 +4,7 @@
 import { useState } from "react";
 
 export default function Dropdown(){
-    const [select , setselect] = useState()
+    const [select , setselect] = useState(0)
 
     const handleselect = (e)=> setselect(e.target.value); 
     const selectData = [
