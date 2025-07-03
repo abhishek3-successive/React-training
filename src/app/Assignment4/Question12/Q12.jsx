@@ -14,14 +14,14 @@ import {
 } from '@mui/material';
 
 const sampleData = [
-  { id: 1, name: 'GG', age: 25, city: 'Delhi' },
-  { id: 2, name: 'Goku', age: 30, city: 'Mumbai' },
-  { id: 3, name: 'Vegeta', age: 22, city: 'Bangalore' },
-  { id: 4, name: 'Pikalo', age: 28, city: 'Chennai' },
-  { id: 5, name: 'Super Dragon', age: 35, city: 'Kolkata' },
-  { id: 6, name: 'Supreme Leader', age: 29, city: 'Pune' },
-  { id: 7, name: 'Gohan', age: 33, city: 'Ahmedabad' },
-  { id: 8, name: 'Tanjiro', age: 27, city: 'Hyderabad' },
+  { id: 1, name: 'GG', age: 25, city: 'Earth141' },
+  { id: 2, name: 'Goku', age: 30, city: 'Mars111' },
+  { id: 3, name: 'Vegeta', age: 22, city: 'Earth142' },
+  { id: 4, name: 'Pikalo', age: 28, city: 'Nameek' },
+  { id: 5, name: 'Super Dragon', age: 35, city: 'Kai land' },
+  { id: 6, name: 'Supreme Leader', age: 29, city: 'North Korea' },
+  { id: 7, name: 'Gohan', age: 33, city: 'Goku Place' },
+  { id: 8, name: 'Tanjiro', age: 27, city: 'Kamado dojo' },
 ];
 
 export default function DataTable() {
