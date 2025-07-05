@@ -1,32 +1,79 @@
-// 14. Create a higher-order component (HOC) named withAuth that restricts access to a component only to authenticated users.
-//  Implement this HOC on a sample component and demonstrate how it protects routes or pages in a Next.js application.
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-const isUserAuthenticated = true; 
-
-function withAuth(Component) {
-  return function ProtectedComponent(props) {
+// 🔒 Higher-Order Component
+function withAuth(WrappedComponent) {
+  return function AuthenticatedComponent(props) {
     const router = useRouter();
+    const [checkedAuth, setCheckedAuth] = useState(false);
 
     useEffect(() => {
-      if (!isUserAuthenticated) {
-        router.replace('/login'); 
+      const isLoggedIn = localStorage.getItem('auth') === 'true';
+      if (!isLoggedIn) {
+        router.replace('/'); // Redirect to login if not authenticated
+      } else {
+        setCheckedAuth(true);
       }
     }, [router]);
 
-    return <Component {...props} />;
+    if (!checkedAuth) return <p>Checking authentication...</p>;
+
+    return <WrappedComponent {...props} />;
   };
 }
 
-function Dashboard() {
-  return <h1>Welcome to your Dashboard! You are logged in.</h1>;
+// 🔐 Protected Component
+function ProtectedPage() {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem('auth');
+    router.replace('/');
+  };
+
+  return (
+    <div style={{ padding: '2rem' }}>
+      <h1>🔐 Protected Page</h1>
+      <p>You are logged in and can access this content.</p>
+      <button onClick={handleLogout}>Log Out</button>
+    </div>
+  );
 }
 
-const ProtectedDashboard = withAuth(Dashboard);
+// ✅ Wrapped with auth protection
+const ProtectedWithAuth = withAuth(ProtectedPage);
 
-export default function Page() {
-  return <ProtectedDashboard />;
+// 🧑‍💻 Login Page Logic
+export default function Home() {
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoggedIn(localStorage.getItem('auth') === 'true');
+  }, []);
+
+  const handleLogin = () => {
+    localStorage.setItem('auth', 'true');
+    router.replace('/?protected=true');
+  };
+
+  // Handle navigation to protected page
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('protected') === 'true') {
+      setTimeout(() => router.push('/'), 0); // Push to rerender and trigger HOC
+    }
+  }, [router]);
+
+  return isLoggedIn ? (
+    <ProtectedWithAuth />
+  ) : (
+    <div style={{ padding: '2rem' }}>
+      <h1>🔓 Login Page</h1>
+      <p>You must log in to view protected content.</p>
+      <button onClick={handleLogin}>Log In</button>
+    </div>
+  );
 }
