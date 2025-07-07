@@ -53,11 +53,7 @@ export default function HomePage() {
             fontWeight: "bold",
             transition: "transform 0.3s, box-shadow 0.3s",
           }}>
-<<<<<<< HEAD
           <Link href="/Assignment4">Assignment-4</Link>
-=======
-          <Link href="/Assignment3">Assignment-3</Link>
->>>>>>> 9ea42733042e66b8cd27c623b16f57b3ebce4ed0
         </li>
       </ul>
     </main>
