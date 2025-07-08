@@ -4,9 +4,9 @@ import UserProfile from "./UserProfile";
 
 describe("UserProfile", () => {
   const userData = {
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
+    name: "Abhishek",
+    email: "abhishek.example.com",
+    phone: "1234567890",
   };
 
   test("renders user data correctly", () => {
