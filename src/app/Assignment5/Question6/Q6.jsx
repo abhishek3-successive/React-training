@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function RetryFetch() {
+const RetryFetch= ()=> {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState(null);
   const [error, setError] = useState(null);
@@ -27,7 +27,6 @@ export default function RetryFetch() {
   if (users) {
     return (
       <div>
-        <h2>Fetched Successfully 🎉</h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           {users.map((user) => (
             <li key={user.id} style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem' }}>
@@ -49,3 +48,5 @@ export default function RetryFetch() {
     </div>
   );
 }
+
+export default RetryFetch;

@@ -1,5 +1,3 @@
-// app/page.jsx
-
 // This is a Server Component by default
 import UserList from "./Q16.client";
 
@@ -7,7 +5,7 @@ import UserList from "./Q16.client";
 export default async function Page() {
   const API_URL = 'https://jsonplaceholder.typicode.com/users';
 
-  const res = await fetch(API_URL, { cache: 'no-store' }); // SSR fetch
+  const res = await fetch(API_URL); // SSR fetch
   const data = await res.json();
 
   return (

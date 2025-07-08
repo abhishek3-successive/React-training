@@ -1,4 +1,4 @@
-export default async function PostsPage() {
+  const PostsPage = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
 
   if (!res.ok) {
@@ -32,3 +32,5 @@ export default async function PostsPage() {
     </main>
   );
 }
+
+export default PostsPage;

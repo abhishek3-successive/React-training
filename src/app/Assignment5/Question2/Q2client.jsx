@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export default function UsersList({ users: initialUsers, hasError }) {
+const  UsersList = ({ users: initialUsers, hasError }) => {
   const [users, setUsers] = useState(initialUsers);
   const [error, setError] = useState(hasError);
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,6 @@ export default function UsersList({ users: initialUsers, hasError }) {
       </div>
     );
   }
-
   return (
     <ul style={{ listStyle: 'none', padding: 0 }}>
       {users.map((user) => (
@@ -49,3 +48,5 @@ export default function UsersList({ users: initialUsers, hasError }) {
     </ul>
   );
 }
+
+export default UsersList;

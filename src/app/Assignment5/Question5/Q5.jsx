@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default async function UsersPage() {
+const UsersPage = async () => {
   const res = await axios.get('https://jsonplaceholder.typicode.com/users');
   const users = res.data;
 
@@ -19,3 +19,4 @@ export default async function UsersPage() {
     </div>
   );
 }
+export default UsersPage;
