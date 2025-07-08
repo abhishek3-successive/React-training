@@ -2,7 +2,7 @@
 import UserList from "./Q16.client";
 
 // HOC: Server-side data fetching and return client component with props
-export default async function Page() {
+const Page= async()=> {
   const API_URL = 'https://jsonplaceholder.typicode.com/users';
 
   const res = await fetch(API_URL); // SSR fetch
@@ -15,3 +15,4 @@ export default async function Page() {
     </main>
   );
 }
+export default Page;
