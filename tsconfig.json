@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/Assignment4/Question4/page.jsx", "src/app/Assignment4/Question4/Q4.css.jsx", "src/app/Assignment4/Question6/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]
