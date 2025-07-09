@@ -26,7 +26,14 @@ export default function MUIForm() {
     if (!form.firstName.trim()) newErrors.firstName = 'First Name is required';
     if (!form.lastName.trim()) newErrors.lastName = 'Last Name is required';
     if (!/^\d{10}$/.test(form.phone)) newErrors.phone = 'Phone must be 10 digits';
-    if (form.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
+    
+  if (form.password.length < 6) {
+    newErrors.password = 'Password must be at least 6 characters';
+  } else if (!/(?=.*[0-9])/.test(form.password)) {
+    newErrors.password = 'Password must contain at least one number';
+  } else if (!/(?=.*[!@#$%^&*])/.test(form.password)) {
+    newErrors.password = 'Password must contain at least one special character (!@#$%^&*)';
+  }
     return newErrors;
   };
 

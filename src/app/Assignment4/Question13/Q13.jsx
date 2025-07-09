@@ -12,6 +12,9 @@ const validationSchema = Yup.object({
   password: Yup.string()
     .min(6, 'Password must be at least 6 characters')
     .matches(/[A-Z]/, 'Password must include at least one uppercase letter')
+    .matches(/[0-9]/, 'Password must include at least one number')
+    .matches(/[!@#$%^&*]/, 'Password must include at least one special character (!@#$%^&*)')
+
     .required('Password is required'),
   phone: Yup.string()
     .matches(/^[0-9]{10}$/, 'Phone number must be exactly 10 digits')
@@ -26,8 +29,8 @@ export default function ComplexForm() {
       phone: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: () => {
+      alert(JSON.stringify( 'form submitted'));
     },
     validateOnChange: true,
     validateOnBlur: true,

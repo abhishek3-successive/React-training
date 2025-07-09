@@ -2,17 +2,21 @@
 'use client'
 
 import { useState } from "react"
+import {inputFocusStyle, inputStyle,greetingStyle} from './Q1.css'
 
 export default function ControlledCompo(){
     const[input , setinput] = useState(" ")
-    return(
-        <>
-        <input
+    return (
+    <>
+      <input
         type="text"
         value={input}
-        onChange={(e)=>setinput(e.target.value)} ></input>
-
-        <h1> Hello {input}</h1>
-        </>
-    );
+        onChange={e => setinput(e.target.value)}
+        style={inputStyle}
+        onFocus={e => e.target.style.borderColor = '#0070f3'}
+        onBlur={e => e.target.style.borderColor = '#333'}
+      />
+      <h1 style={greetingStyle}>Hello {input}</h1>
+    </>
+  );
 }

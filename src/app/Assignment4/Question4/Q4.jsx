@@ -1,8 +1,6 @@
-// 4.Build a registration form with two password fields. 
-// Implement controlled components for both password inputs. 
-// Add a validation rule to ensure that the two passwords match before allowing the form submission.
-'use client'
+'use client';
 import { useState } from "react";
+import styles from "./Q4.css";
 
 export default function ControlledRegistrationForm() {
   const [username, setUsername] = useState('');
@@ -10,8 +8,8 @@ export default function ControlledRegistrationForm() {
   const [verifyPassword, setVerifyPassword] = useState('');
   const [error, setError] = useState('');
 
-  // Handle the password verification logic
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (password !== verifyPassword) {
       setError('Passwords do not match!');
     } else {
@@ -20,28 +18,33 @@ export default function ControlledRegistrationForm() {
     }
   };
 
+ 
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={styles.form}>
       <input
         type="text"
         placeholder="Enter your username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        style={styles.input}
       />
       <input
         type="password"
         placeholder="Enter your password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        style={styles.input}
       />
       <input
         type="password"
         placeholder="Verify your password"
         value={verifyPassword}
         onChange={(e) => setVerifyPassword(e.target.value)}
+        style={styles.input}
       />
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      <button disabled={password !== verifyPassword }>
+      {error && <div style={styles.error}>{error}</div>}
+      <button type="submit" style={styles.button}>
         Submit
       </button>
     </form>
