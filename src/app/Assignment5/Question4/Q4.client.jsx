@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect } from "react";
-import styles from "./Q4.css";
-const  PaginatedList =()=> {
+import { useState, useEffect } from 'react';
+import { fetchPosts } from '../Api-Data/fetch/post'; 
+import styles from './Q4.css';
+
+const PaginatedList = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,25 +13,25 @@ const  PaginatedList =()=> {
   const itemsPerPage = 12;
 
   useEffect(() => {
-    async function fetchData() {
+    async function loadData() {
       setLoading(true);
-      try {
-        // Example API with 100 posts
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-        if (!res.ok) throw new Error("Failed to fetch data");
-        const json = await res.json();
-        setData(json);
+      const { posts, hasError, errorMessage } = await fetchPosts();
+
+      if (hasError) {
+        setError(errorMessage || 'Unknown error');
+        setData([]);
+      } else {
+        setData(posts);
         setError(null);
-      } catch (err) {
-        setError(err.message || "Unknown error");
-      } finally {
-        setLoading(false);
       }
+
+      setLoading(false);
     }
-    fetchData();
+
+    loadData();
   }, []);
 
-  // Calculate pagination indices
+  // Pagination calculations
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = data.slice(startIndex, startIndex + itemsPerPage);
@@ -38,13 +40,12 @@ const  PaginatedList =()=> {
   const handlePrev = () => setCurrentPage((p) => Math.max(p - 1, 1));
   const handleNext = () => setCurrentPage((p) => Math.min(p + 1, totalPages));
 
-  
-
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>Paginated Data List</h2>
 
       {loading && <div style={styles.loading}>Loading data...</div>}
+
       {error && <div style={styles.error}>{error}</div>}
 
       {!loading && !error && (
@@ -89,5 +90,6 @@ const  PaginatedList =()=> {
       )}
     </div>
   );
-}
-export default PaginatedList
+};
+
+export default PaginatedList;

@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import {
   Button,
@@ -9,27 +10,26 @@ import {
   ListItemText,
   Box,
 } from '@mui/material';
+import { fetchUsers } from '../Api-Data/fetch/user';  
 
-export default function UsersList({ users: initialUsers, hasError }) {
+export default function UsersList({ users: initialUsers, hasError: initialHasError }) {
   const [users, setUsers] = useState(initialUsers);
-  const [error, setError] = useState(hasError);
+  const [error, setError] = useState(initialHasError);
   const [loading, setLoading] = useState(false);
 
   const retryFetch = async () => {
     setLoading(true);
     setError(false);
 
-    try {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users');
-      if (!res.ok) throw new Error('Fetch failed');
+    const { users, hasError } = await fetchUsers();
 
-      const data = await res.json();
-      setUsers(data);
-    } catch (err) {
+    if (hasError) {
       setError(true);
-    } finally {
-      setLoading(false);
+    } else {
+      setUsers(users);
     }
+
+    setLoading(false);
   };
 
   if (loading) {

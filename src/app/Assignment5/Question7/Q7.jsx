@@ -1,30 +1,37 @@
 'use client';
 
-import axios from 'axios';
 import { useState } from 'react';
 import styles from './Q7.css';
+import { submitPost } from '../Api-Data/axios/post'; 
 
 const PostForm = () => {
   const [post, setPost] = useState('');
   const [title, setTitle] = useState('');
+  const [error, setError] = useState(null); 
+  const [successMessage, setSuccessMessage] = useState('');
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    const result = {
+    const postData = {
       name: post,
       title: title,
       id: Math.floor(Math.random() * 1000) + 1,
     };
 
-    await axios.post('https://jsonplaceholder.typicode.com/posts', result);
-    alert('Submitted!');
+    const { success, response, error } = await submitPost(postData);
 
-    setPost('');
-    setTitle('');
+    if (success) {
+      setSuccessMessage('Post submitted successfully!');
+      setError(null);
+      setPost('');
+      setTitle('');
+    } else {
+      setError(error || 'Something went wrong');
+      setSuccessMessage('');
+    }
   };
 
-  
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>Create a Post</h2>
@@ -50,6 +57,10 @@ const PostForm = () => {
             required
           />
         </div>
+
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+
         <button
           type="submit"
           style={styles.button}

@@ -1,18 +1,8 @@
-import UsersList from "./Q3client";
+import UsersList from './Q3client';
+import { fetchUsers } from '../Api-Data/fetch/user';  
 
 export default async function UsersPage() {
-  let users = [];
-  let hasError = false;
-
-  try {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users', {
-    });
-
-    if (!res.ok) throw new Error('Fetch failed');
-    users = await res.json();
-  } catch (err) {
-    hasError = true;
-  }
+  const { users, hasError } = await fetchUsers();
 
   return (
     <main style={{ padding: '2rem' }}>

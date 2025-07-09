@@ -1,18 +1,21 @@
-// This is a Server Component by default
+// This is a Server Component
 import UserList from "./Q16.client";
+import { fetchUsers } from "../Api-Data/axios/user";
 
-// HOC: Server-side data fetching and return client component with props
-const Page= async()=> {
-  const API_URL = 'https://jsonplaceholder.typicode.com/users';
-
-  const res = await fetch(API_URL); // SSR fetch
-  const data = await res.json();
+const Page = async () => {
+  const { data, error, message } = await fetchUsers();
 
   return (
     <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
       <h1>🔁 SSR + Client Component via HOC</h1>
-      <UserList data={data} />
+
+      {error ? (
+        <p style={{ color: 'red' }}>Error loading users: {message}</p>
+      ) : (
+        <UserList data={data} />
+      )}
     </main>
   );
-}
+};
+
 export default Page;

@@ -1,11 +1,25 @@
-  const PostsPage = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+'use client'
+import { useEffect, useState } from 'react';
+import { fetchPosts } from '../Api-Data/fetch/post';
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch posts');
-  }
+export default function PostsPage() {
+  const [posts, setPosts] = useState([]);
+  const [hasError, setHasError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const posts = await res.json();
+  useEffect(() => {
+    async function getPosts() {
+      const { posts, hasError } = await fetchPosts();
+      setPosts(posts);
+      setHasError(hasError);
+      setLoading(false);
+    }
+
+    getPosts();
+  }, []);
+
+  if (loading) return <p style={{ padding: '2rem' }}>Loading posts...</p>;
+  if (hasError) return <p style={{ padding: '2rem', color: 'red' }}>Failed to fetch posts.</p>;
 
   return (
     <main style={{ padding: '2rem' }}>
@@ -32,5 +46,3 @@
     </main>
   );
 }
-
-export default PostsPage;
