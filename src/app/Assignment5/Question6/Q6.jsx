@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import axios from 'axios';
+import { fetchUsersData } from '../Api-Data/externalCalls';
 
 const RetryFetch = () => {
   const [loading, setLoading] = useState(false);
@@ -12,16 +12,19 @@ const RetryFetch = () => {
   const handleRetry = async () => {
     setLoading(true);
     setError(null);
-    setShowError(false); 
+    setShowError(false);
 
-    try {
-      const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-      setUsers(res.data);
-    } catch (err) {
-      setError(err.message || 'Something went wrong');
-    } finally {
-      setLoading(false);
+    const { users, hasError } = await fetchUsersData();
+
+    if (hasError) {
+      setError('Failed to fetch users');
+      setUsers(null);
+    } else {
+      setUsers(users);
+      setError(null);
     }
+
+    setLoading(false);
   };
 
   if (loading) return <p>Retrying...</p>;
