@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { fetchPosts } from '../Api-Data/fetch/post'; 
+import { fetchProducts } from '../Api-Data/externalCalls'; 
 import styles from './Q4.css';
 
 const PaginatedList = () => {
@@ -13,9 +13,9 @@ const PaginatedList = () => {
   const itemsPerPage = 12;
 
   useEffect(() => {
-    async function loadData() {
+    const loadData = async()=> {
       setLoading(true);
-      const { posts, hasError, errorMessage } = await fetchPosts();
+      const { posts, hasError, errorMessage } = await fetchProducts();
 
       if (hasError) {
         setError(errorMessage || 'Unknown error');

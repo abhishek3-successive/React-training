@@ -1,6 +1,6 @@
 'use client';
 
-export default function UserList({ data }) {
+const UserList=({ data })=> {
   if (!Array.isArray(data)) {
     return <p style={{ color: 'red' }}>No user data available.</p>;
   }
@@ -18,3 +18,4 @@ export default function UserList({ data }) {
     </div>
   );
 }
+export default UserList;

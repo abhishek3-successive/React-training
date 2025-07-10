@@ -10,7 +10,7 @@ import {
   ListItemText,
   Box,
 } from '@mui/material';
-import { fetchUsers } from '../Api-Data/fetch/user';  
+import { fetchUsers } from '../Api-Data/externalCalls';  
 
 export default function UsersList({ users: initialUsers, hasError: initialHasError }) {
   const [users, setUsers] = useState(initialUsers);

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 // 🔒 Higher-Order Component
-function withAuth(WrappedComponent) {
+const withAuth=(WrappedComponent)=>{
   return function AuthenticatedComponent(props) {
     const router = useRouter();
     const [checkedAuth, setCheckedAuth] = useState(false);
@@ -25,7 +25,7 @@ function withAuth(WrappedComponent) {
 }
 
 // 🔐 Protected Component
-function ProtectedPage() {
+const  ProtectedPage=()=> {
   const router = useRouter();
 
   const handleLogout = () => {
@@ -46,7 +46,7 @@ function ProtectedPage() {
 const ProtectedWithAuth = withAuth(ProtectedPage);
 
 // 🧑‍💻 Login Page Logic
-export default function Home() {
+const Home=()=> {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -77,3 +77,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home

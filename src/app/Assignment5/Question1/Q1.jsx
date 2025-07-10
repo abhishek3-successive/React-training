@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
-import { fetchPosts } from '../Api-Data/fetch/post';
+import { insertData } from '../Api-Data/externalCalls';
 
 export default function PostsPage() {
   const [posts, setPosts] = useState([]);
@@ -9,7 +9,7 @@ export default function PostsPage() {
 
   useEffect(() => {
     async function getPosts() {
-      const { posts, hasError } = await fetchPosts();
+      const { posts, hasError } = await insertData();
       setPosts(posts);
       setHasError(hasError);
       setLoading(false);

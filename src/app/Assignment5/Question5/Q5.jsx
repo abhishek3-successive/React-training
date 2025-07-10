@@ -1,8 +1,8 @@
 import React from 'react';
-import { fetchUsers } from '../Api-Data/axios/user';
+import { fetchUsersData } from '../Api-Data/externalCalls';
 
 const UsersPage = async () => {
-  const { users, hasError } = await fetchUsers();
+  const { users, hasError } = await fetchUsersData();
 
   if (hasError) {
     return <div>Failed to load users.</div>;

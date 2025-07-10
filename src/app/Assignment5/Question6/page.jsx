@@ -1,8 +1,8 @@
-import { fetchUsers } from '../Api-Data/axios/user'; 
+import { fetchUsersData } from '../Api-Data/externalCalls'; 
 import RetryFetch from './Q6'; 
 
 export default async function UsersPage() {
-  const { users, hasError, errorMessage } = await fetchUsers();
+  const { users, hasError, errorMessage } = await fetchUsersData();
 
   if (hasError) {
     return (

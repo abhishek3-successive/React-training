@@ -1,7 +1,7 @@
 // components/Modal.jsx
 import React from 'react';
 
-export default function Modal({ isOpen, onClose, children }) {
+const Modal=({ isOpen, onClose, children })=> {
   if (!isOpen) return null;
 
   return (
@@ -45,3 +45,5 @@ const styles = {
     marginTop: '1rem',
   },
 };
+
+export default Modal;

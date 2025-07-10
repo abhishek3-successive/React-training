@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './Q7.css';
-import { submitPost } from '../Api-Data/axios/post'; 
+import { submitData } from '../Api-Data/externalCalls'; 
 
 const PostForm = () => {
   const [post, setPost] = useState('');
@@ -19,7 +19,7 @@ const PostForm = () => {
       id: Math.floor(Math.random() * 1000) + 1,
     };
 
-    const { success, response, error } = await submitPost(postData);
+    const { success, response, error } = await submitData(postData);
 
     if (success) {
       setSuccessMessage('Post submitted successfully!');

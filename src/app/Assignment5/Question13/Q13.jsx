@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Modal from './model';
 
-export default function Home() {
+const Home=()=>{
   const [isModalOpen, setModalOpen] = useState(false);
   const [contentType, setContentType] = useState('text');
 
@@ -54,3 +54,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;

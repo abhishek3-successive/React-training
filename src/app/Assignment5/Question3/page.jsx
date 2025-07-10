@@ -1,7 +1,7 @@
 import UsersList from './Q3client';
-import { fetchUsers } from '../Api-Data/fetch/user';  
+import { fetchUsers } from '../Api-Data/externalCalls';  
 
-export default async function UsersPage() {
+const  UsersPage= async()=> {
   const { users, hasError } = await fetchUsers();
 
   return (
@@ -13,3 +13,4 @@ export default async function UsersPage() {
     </main>
   );
 }
+export default UsersPage;

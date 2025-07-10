@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
-import { fetchUsers } from '../Api-Data/fetch/user';
+import { fetchUsers } from '../Api-Data/externalCalls';
 import UsersList from './Q2client';
 
 export default function UsersPage() {
