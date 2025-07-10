@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { fetchUsers } from '../Api-Data/externalCalls';  
 
-export default function UsersList({ users: initialUsers, hasError: initialHasError }) {
+const UsersList=({ users: initialUsers, hasError: initialHasError })=> {
   const [users, setUsers] = useState(initialUsers);
   const [error, setError] = useState(initialHasError);
   const [loading, setLoading] = useState(false);
@@ -62,3 +62,5 @@ export default function UsersList({ users: initialUsers, hasError: initialHasErr
     </List>
   );
 }
+
+export default UsersList;

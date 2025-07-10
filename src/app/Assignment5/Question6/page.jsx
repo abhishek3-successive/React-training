@@ -1,7 +1,7 @@
 import { fetchUsersData } from '../Api-Data/externalCalls'; 
 import RetryFetch from './Q6'; 
 
-export default async function UsersPage() {
+const UsersPage= async()=> {
   const { users, hasError, errorMessage } = await fetchUsersData();
 
   if (hasError) {
@@ -32,3 +32,4 @@ export default async function UsersPage() {
     </div>
   );
 }
+export default UsersPage;

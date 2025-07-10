@@ -1,4 +1,4 @@
-export default function UsersList({ users, hasError }) {
+const  UsersList=({ users, hasError })=> {
   if (hasError) return <p style={{ color: 'red' }}>❌ An error occurred while fetching users.</p>;
   if (users.length === 0) return <p>Loading...</p>;
 
@@ -10,3 +10,5 @@ export default function UsersList({ users, hasError }) {
     </ul>
   );
 }
+
+export default UsersList;
