@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { insertData } from '../Api-Data/externalCalls';
 
-export default function PostsPage() {
+const  PostsPage=()=> {
   const [posts, setPosts] = useState([]);
   const [hasError, setHasError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -46,3 +46,4 @@ export default function PostsPage() {
     </main>
   );
 }
+export default PostsPage;

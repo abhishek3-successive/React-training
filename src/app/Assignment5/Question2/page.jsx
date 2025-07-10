@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchUsers } from '../Api-Data/externalCalls';
 import UsersList from './Q2client';
 
-export default function UsersPage() {
+const UsersPage=()=> {
   const [users, setUsers] = useState([]);
   const [hasError, setHasError] = useState(false);
 
@@ -46,3 +46,5 @@ export default function UsersPage() {
     </main>
   );
 }
+
+export default UsersPage;
