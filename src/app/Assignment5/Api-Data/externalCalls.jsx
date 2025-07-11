@@ -40,8 +40,8 @@ export const fetchUsers= async()=> {
   }
 }
 
-export const fetchProducts= async( skip=0, limit=10)=> {
-  const res = await fetch(`https://dummyjson.com/posts?limit=${limit}&skip=${skip}`);
+export const fetchProducts= async( limit=10)=> {
+  const res = await fetch(`https://dummyjson.com/posts?limit=${limit}`);
   const data = await res.json();
   return {
     posts: data.posts,
