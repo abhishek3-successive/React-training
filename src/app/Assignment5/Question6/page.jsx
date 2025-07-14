@@ -2,12 +2,11 @@ import { fetchUsersData } from '../Api-Data/externalCalls';
 import RetryFetch from './Q6'; 
 
 const UsersPage= async()=> {
-  const { users, hasError, errorMessage } = await fetchUsersData();
+  const { users, hasError , errorMessage } = await fetchUsersData();
 
   if (hasError) {
     return (
       <div>
-        <h1>Failed to load users 😢</h1>
         <p>{errorMessage}</p>
         <RetryFetch />
       </div>

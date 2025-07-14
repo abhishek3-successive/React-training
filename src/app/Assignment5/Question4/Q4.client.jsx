@@ -10,12 +10,12 @@ const PaginatedList = () => {
   const [error, setError] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const itemsPerPage = 3;
 
   useEffect(() => {
     const loadData = async()=> {
       setLoading(true);
-      const { posts, hasError, errorMessage } = await fetchProducts();
+      const { posts, hasError, errorMessage } = await fetchProducts(10);
 
       if (hasError) {
         setError(errorMessage || 'Unknown error');

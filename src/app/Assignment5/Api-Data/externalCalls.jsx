@@ -9,16 +9,20 @@ import axios from 'axios';
   }
 }
 
-export const  fetchUsersData = async () => {
+export const fetchUsersData = async () => {
   try {
     const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-    return { users: res.data, hasError: false };
+    return { users: res.data, hasError: false, errorMessage: null };
   } catch (error) {
-    return { users: [], hasError: true };
+    return { 
+      users: [], 
+      hasError: false, 
+      errorMessage: error.response?.data?.message || error.message || 'Unknown error' 
+    };
   }
 }
 
-export const  insertData= async(limit = 12)=> {
+export const  insertData= async()=> {
   try {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
     if (!res.ok) throw new Error('Failed to fetch posts');
@@ -40,7 +44,7 @@ export const fetchUsers= async()=> {
   }
 }
 
-export const fetchProducts= async( limit=10)=> {
+export const fetchProducts= async(limit=10)=> {
   const res = await fetch(`https://dummyjson.com/posts?limit=${limit}`);
   const data = await res.json();
   return {

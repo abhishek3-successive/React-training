@@ -5,7 +5,7 @@ import UsersList from './Q2client';
 
 const UsersPage=()=> {
   const [users, setUsers] = useState([]);
-  const [hasError, setHasError] = useState(false);
+  const [hasError, setHasError] = useState(true);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -26,21 +26,6 @@ const UsersPage=()=> {
       <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>
         Users
       </h1>
-
-      <button
-        onClick={handleShowError}
-        style={{
-          marginBottom: '1rem',
-          padding: '0.5rem 1rem',
-          backgroundColor: '#f44336',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-        }}
-      >
-        Show Error
-      </button>
 
       <UsersList users={users} hasError={hasError} />
     </main>
