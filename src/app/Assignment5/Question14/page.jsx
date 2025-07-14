@@ -1,9 +1,11 @@
 import LoginPage from "./Q14";
 
-export default function(){
+const App=()=>{
     return(
         <>
         <LoginPage/>
         </>
     );
 }
+
+export default App;

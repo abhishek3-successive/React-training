@@ -1,9 +1,11 @@
 import Home from "./Q13";
 
-export default function(){
+const App = ()=>{
     return(
         <>
         <Home/>
         </>
     );
 }
+
+export default App;

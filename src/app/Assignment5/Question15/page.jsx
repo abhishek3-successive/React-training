@@ -1,4 +1,7 @@
 import Compo from "./Q15";
-export default function (){
+
+const App =()=>{
     return <Compo/>
 }
+
+export default App;
