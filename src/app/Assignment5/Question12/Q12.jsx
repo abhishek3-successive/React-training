@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Button from './Button';
 
-export default function Home() {
+const  Home= () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -32,3 +32,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;

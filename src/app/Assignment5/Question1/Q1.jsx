@@ -8,7 +8,7 @@ const  PostsPage=()=> {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getPosts() {
+    const getPosts= async()=> {
       const { posts, hasError } = await insertData();
       setPosts(posts);
       setHasError(hasError);

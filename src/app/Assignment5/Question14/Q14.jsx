@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 // 🔒 Higher-Order Component
 const withAuth=(WrappedComponent)=>{
-  return function AuthenticatedComponent(props) {
+  return  AuthenticatedComponent= (props)=> {
     const router = useRouter();
     const [checkedAuth, setCheckedAuth] = useState(false);
 

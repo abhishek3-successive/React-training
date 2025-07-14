@@ -3,7 +3,7 @@
 'use client'
 import React, { useEffect } from 'react';
 const withLogger=(WrappedComponent)=> {
-  return function WithLogger(props) {
+  return  WithLogger=(props)=> {
     useEffect(() => {
       console.log(`🟢 [${WrappedComponent.name}] mounted`);
 

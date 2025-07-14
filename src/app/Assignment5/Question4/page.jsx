@@ -1,9 +1,10 @@
 import PaginatedList from "./Q4.client";
 
-export default function(){
+const App = ()=>{
     return(
         <>
         <PaginatedList/>
         </>
     );
 }
+export default App;

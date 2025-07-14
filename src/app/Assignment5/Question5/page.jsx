@@ -1,5 +1,6 @@
 import Axiosget from "./Q5";
 
-export default function (){
+const App =  ()=>{
     return <Axiosget/>
 }
+export default App;
