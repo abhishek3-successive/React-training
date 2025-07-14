@@ -27,7 +27,7 @@ const styles = {
   },
 };
 
-export default function Button({ children, onClick, variant = 'primary', disabled = false }) {
+const Button = ({ children, onClick, variant = 'primary', disabled = false }) => {
   const combinedStyle = {
     ...styles.base,
     ...(styles[variant] || styles.primary),
@@ -40,3 +40,5 @@ export default function Button({ children, onClick, variant = 'primary', disable
     </button>
   );
 }
+
+export default Button;
