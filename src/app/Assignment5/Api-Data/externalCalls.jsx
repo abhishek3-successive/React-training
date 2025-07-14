@@ -1,6 +1,6 @@
 import axios from 'axios';
 
- export const  submitData = async (postData) => {
+ const  submitData = async (postData) => {
   try {
     const res = await axios.post('https://jsonplaceholder.typicode.com/posts', postData);
     return { success: true, response: res.data };
@@ -9,7 +9,7 @@ import axios from 'axios';
   }
 }
 
-export const fetchUsersData = async () => {
+ const fetchUsersData = async () => {
   try {
     const res = await axios.get('https://jsonplaceholder.typicode.com/users');
     return { users: res.data, hasError: false, errorMessage: null };
@@ -22,7 +22,7 @@ export const fetchUsersData = async () => {
   }
 }
 
-export const  insertData= async()=> {
+ const  insertData= async()=> {
   try {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
     if (!res.ok) throw new Error('Failed to fetch posts');
@@ -33,7 +33,7 @@ export const  insertData= async()=> {
   }
 }
 
-export const fetchUsers= async()=> {
+ const fetchUsers= async()=> {
   try {
     const res = await fetch('https://jsonplaceholder.typicode.com/users');
     if (!res.ok) throw new Error('Failed to fetch users');
@@ -44,7 +44,7 @@ export const fetchUsers= async()=> {
   }
 }
 
-export const fetchProducts= async(limit=10)=> {
+ const fetchProducts= async(limit=10)=> {
   const res = await fetch(`https://dummyjson.com/posts?limit=${limit}`);
   const data = await res.json();
   return {
@@ -52,3 +52,5 @@ export const fetchProducts= async(limit=10)=> {
     total: data.total
   };
 }
+
+export {fetchProducts,fetchUsers,insertData,fetchUsersData,submitData}
