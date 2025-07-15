@@ -1,5 +1,7 @@
 import PostForm from "./Q7";
 
-export default function(){
+const App = ()=>{
     return <PostForm/>
 }
+
+export default App;

@@ -1,26 +1,35 @@
-import UsersList from "./Q2client";
+'use client'
+import { useEffect, useState } from 'react';
+import { fetchUsers } from '../Api-Data/externalCalls';
+import UsersList from './Q2client';
 
-export default async function UsersPage() {
-  let users = [];
-  let hasError = false;
+const UsersPage=()=> {
+  const [users, setUsers] = useState([]);
+  const [hasError, setHasError] = useState(true);
 
-  try {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users', {
-    });
+  useEffect(() => {
+    const getUsers = async () => {
+      const { users, hasError } = await fetchUsers();
+      setUsers(users);
+      setHasError(hasError);
+    };
 
-    if (!res.ok) throw new Error('Fetch failed');
+    getUsers();
+  }, []);
 
-    users = await res.json();
-  } catch (err) {
-    hasError = true;
-  }
+  const handleShowError = () => {
+    setHasError(true);
+  };
 
   return (
     <main style={{ padding: '2rem' }}>
       <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>
         Users
       </h1>
+
       <UsersList users={users} hasError={hasError} />
     </main>
   );
 }
+
+export default UsersPage;

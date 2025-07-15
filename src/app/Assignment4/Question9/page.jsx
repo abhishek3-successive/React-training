@@ -1,9 +1,9 @@
-import RootLayout from "./layout";
+import PersistentDrawerLeft from "./layout";
 
 export default function(){
     return(
         <>
-        <RootLayout/>
+        <PersistentDrawerLeft/>
         </>
     );
 }

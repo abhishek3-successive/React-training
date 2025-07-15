@@ -2,9 +2,8 @@
 // Apply this HOC to a component and ensure the logs appear in the browser console.
 'use client'
 import React, { useEffect } from 'react';
-
-function withLogger(WrappedComponent) {
-  return function WithLogger(props) {
+const withLogger=(WrappedComponent)=> {
+  const WithLogger=(props)=> {
     useEffect(() => {
       console.log(`🟢 [${WrappedComponent.name}] mounted`);
 
@@ -19,17 +18,18 @@ function withLogger(WrappedComponent) {
 
     return <WrappedComponent {...props} />;
   };
+  return WithLogger
 }
 
 // Example component
-function MyComponent() {
+const MyComponent=()=> {
   return <h1>Hello from MyComponent</h1>;
 }
 
 // Wrap with logger
 const MyComponentWithLogger = withLogger(MyComponent);
 
-export default function App() {
+const  App=()=> {
   return (
     <div>
       <MyComponentWithLogger />
@@ -37,3 +37,4 @@ export default function App() {
     </div>
   );
 }
+export default App;
